@@ -9,7 +9,7 @@ namespace Number_27866
             string myStr = Console.ReadLine();
             int findStr = int.Parse(Console.ReadLine()) - 1;
 
-            Console.WriteLine("{0}", myStr[findStr]);
+            Console.WriteLine(myStr[findStr]);
 
             //for (int i = 0; i < myStr.Length; i++)
             //{
