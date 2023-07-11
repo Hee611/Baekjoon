@@ -26,7 +26,7 @@ namespace Number_10807
 
             Console.WriteLine(cnt);
 
-            Console.ReadKey();
+            //Console.ReadKey();
         }
     }
 }
