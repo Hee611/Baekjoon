@@ -17,7 +17,7 @@ namespace Number_27866
             //        Console.WriteLine(myStr[i]);
             //}
 
-            Console.ReadKey();
+            //Console.ReadKey();
         }
     }
 }
