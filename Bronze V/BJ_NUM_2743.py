@@ -1,2 +1,2 @@
 spring = input()
-print(len(spring))
+print(len(spring)) 
