@@ -1,0 +1,14 @@
+C:\Users\ncloud24\Documents\카카오톡 받은 파일\JTH\과제\20230625\20230626\Assignment01_230626\Assignment01_230626\bin\Debug\Assignment01_230626.exe.config
+C:\Users\ncloud24\Documents\카카오톡 받은 파일\JTH\과제\20230625\20230626\Assignment01_230626\Assignment01_230626\bin\Debug\Assignment01_230626.exe
+C:\Users\ncloud24\Documents\카카오톡 받은 파일\JTH\과제\20230625\20230626\Assignment01_230626\Assignment01_230626\bin\Debug\Assignment01_230626.pdb
+C:\Users\ncloud24\Documents\카카오톡 받은 파일\JTH\과제\20230625\20230626\Assignment01_230626\Assignment01_230626\obj\Debug\Assignment01_230626.csproj.AssemblyReference.cache
+C:\Users\ncloud24\Documents\카카오톡 받은 파일\JTH\과제\20230625\20230626\Assignment01_230626\Assignment01_230626\obj\Debug\Assignment01_230626.csproj.CoreCompileInputs.cache
+C:\Users\ncloud24\Documents\카카오톡 받은 파일\JTH\과제\20230625\20230626\Assignment01_230626\Assignment01_230626\obj\Debug\Assignment01_230626.exe
+C:\Users\ncloud24\Documents\카카오톡 받은 파일\JTH\과제\20230625\20230626\Assignment01_230626\Assignment01_230626\obj\Debug\Assignment01_230626.pdb
+C:\Users\SBSGAME\Desktop\JTH\과제\20230625\20230626\Assignment01_230626\Assignment01_230626\bin\Debug\Assignment01_230626.exe.config
+C:\Users\SBSGAME\Desktop\JTH\과제\20230625\20230626\Assignment01_230626\Assignment01_230626\bin\Debug\Assignment01_230626.exe
+C:\Users\SBSGAME\Desktop\JTH\과제\20230625\20230626\Assignment01_230626\Assignment01_230626\bin\Debug\Assignment01_230626.pdb
+C:\Users\SBSGAME\Desktop\JTH\과제\20230625\20230626\Assignment01_230626\Assignment01_230626\obj\Debug\Assignment01_230626.csprojAssemblyReference.cache
+C:\Users\SBSGAME\Desktop\JTH\과제\20230625\20230626\Assignment01_230626\Assignment01_230626\obj\Debug\Assignment01_230626.csproj.CoreCompileInputs.cache
+C:\Users\SBSGAME\Desktop\JTH\과제\20230625\20230626\Assignment01_230626\Assignment01_230626\obj\Debug\Assignment01_230626.exe
+C:\Users\SBSGAME\Desktop\JTH\과제\20230625\20230626\Assignment01_230626\Assignment01_230626\obj\Debug\Assignment01_230626.pdb

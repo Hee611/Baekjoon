@@ -1,0 +1,7 @@
+C:\Users\ncloud24\Documents\카카오톡 받은 파일\JTH\과제\20230618\20230622\Assignment_230622\Assignment02_230622\bin\Debug\Assignment02_230622.exe.config
+C:\Users\ncloud24\Documents\카카오톡 받은 파일\JTH\과제\20230618\20230622\Assignment_230622\Assignment02_230622\bin\Debug\Assignment02_230622.exe
+C:\Users\ncloud24\Documents\카카오톡 받은 파일\JTH\과제\20230618\20230622\Assignment_230622\Assignment02_230622\bin\Debug\Assignment02_230622.pdb
+C:\Users\ncloud24\Documents\카카오톡 받은 파일\JTH\과제\20230618\20230622\Assignment_230622\Assignment02_230622\obj\Debug\Assignment02_230622.csproj.AssemblyReference.cache
+C:\Users\ncloud24\Documents\카카오톡 받은 파일\JTH\과제\20230618\20230622\Assignment_230622\Assignment02_230622\obj\Debug\Assignment02_230622.csproj.CoreCompileInputs.cache
+C:\Users\ncloud24\Documents\카카오톡 받은 파일\JTH\과제\20230618\20230622\Assignment_230622\Assignment02_230622\obj\Debug\Assignment02_230622.exe
+C:\Users\ncloud24\Documents\카카오톡 받은 파일\JTH\과제\20230618\20230622\Assignment_230622\Assignment02_230622\obj\Debug\Assignment02_230622.pdb
