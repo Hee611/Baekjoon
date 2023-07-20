@@ -1,7 +1,0 @@
-D:\JTH\과제\20230716\20230719\Assignment\Assignment01\bin\Debug\Assignment01.exe.config
-D:\JTH\과제\20230716\20230719\Assignment\Assignment01\bin\Debug\Assignment01.exe
-D:\JTH\과제\20230716\20230719\Assignment\Assignment01\bin\Debug\Assignment01.pdb
-D:\JTH\과제\20230716\20230719\Assignment\Assignment01\obj\Debug\Assignment01.csproj.AssemblyReference.cache
-D:\JTH\과제\20230716\20230719\Assignment\Assignment01\obj\Debug\Assignment01.csproj.CoreCompileInputs.cache
-D:\JTH\과제\20230716\20230719\Assignment\Assignment01\obj\Debug\Assignment01.exe
-D:\JTH\과제\20230716\20230719\Assignment\Assignment01\obj\Debug\Assignment01.pdb
