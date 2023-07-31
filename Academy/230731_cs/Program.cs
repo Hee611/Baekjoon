@@ -25,8 +25,7 @@ namespace LearnCS_Collections
                         Console.Write("메뉴 이름을 입력하세요(q/Q면 종료) : ");
                         menuName = Console.ReadLine();
 
-                        if (menuName == "q" || menuName == "Q")
-                            break;
+                        if (menuName == "q" || menuName == "Q") break;
 
                         Console.Write("메뉴 가격을 입력하세요 : ");
                         menuPrice = int.Parse(Console.ReadLine());
@@ -42,36 +41,39 @@ namespace LearnCS_Collections
                 } else if (menuNum == 2) { // 메뉴 삭제 
                     while (true) {
                         // 전체 메뉴 출력
+                        int count = menuDic.Count;
                         foreach (string key in menuDic.Keys) {
                             //cnt++;
-                            if (key.Length == menuDic.Count || menuDic.Count == 1)
-                                Console.Write("{0}\n", key);
-                            else
+                            --count;
+                            if (count == 0 || menuDic.Count == 1) {
+                                Console.WriteLine("{0}", key);
+                            } else {
                                 Console.Write("{0}, ", key);
+                            }
                         }
 
-                        if (menuDic.Count == 0)
-                            break;
+                        if (menuDic.Count == 0) break;
 
                         Console.Write("삭제할 메뉴 이름을 입력하세요(q/Q면 종료) : ");
                         menuName = Console.ReadLine();
 
-                        if (menuName == "q" || menuName == "Q")
-                            break;
+                        if (menuName == "q" || menuName == "Q") break;
 
                         if (menuDic.ContainsKey(menuName)) {
                             menuDic.Remove(menuName);
                             Console.WriteLine("메뉴가 삭제 되었습니다.");
-                        } else
+                        } else {
                             Console.WriteLine("올바른 값을 입력해 주세요.");
+                        }
                     }
                 } else if (menuNum == 3) { // 전체 메뉴 조회
                     foreach (string key in menuDic.Keys) {
                         int length = key.Length;
-                        if (length >= 5) // 글자수가 5 이상이면 탭을 한번
+                        if (length >= 5) { // 글자수가 5 이상이면 탭을 한번
                             Console.WriteLine("메뉴 : {0}\t{1:#,###}원", key, menuDic[key]);
-                        else            // 글자수가 5 미만이면 앞에 탭을 두번
+                        } else {            // 글자수가 5 미만이면 앞에 탭을 두번
                             Console.WriteLine("메뉴 : {0}\t\t{1:#,###}원", key, menuDic[key]);
+                        }
                     }
                 } else if (menuNum == 4) { // 종료 + 먹을 메뉴 선택
                     int choice = 0, totalMenu = 0, totalPrice = 0;
@@ -85,24 +87,25 @@ namespace LearnCS_Collections
                         int cnt = 0;
                         foreach (string key in menuDic.Keys) {
                             int length = key.Length;
-                            if (length >= 3) // 글자수가 3 이상이면 탭을 한번
+                            if (length >= 3) { // 글자수가 3 이상이면 탭을 한번
                                 Console.WriteLine("{0}. {1}\t{2:#,###}", ++cnt, key, menuDic[key]);
-                            else            // 글자수가 3 미만이면 앞에 탭을 두번
+                            } else {            // 글자수가 3 미만이면 앞에 탭을 두번
                                 Console.WriteLine("{0}. {1}\t\t{2:#,###}", ++cnt, key, menuDic[key]);
+                            }
                         }
                         Console.WriteLine("{0}. 메뉴 선택 종료", ++cnt);
                         Console.WriteLine("메뉴를 선택하세요 : ");
 
                         choice = int.Parse(Console.ReadLine());
-                        if (choice == menuDic.Count)
-                            break;
+                        if (choice == menuDic.Count) break;
                         else {
                             totalMenu++;
 
                         }
                     }
-                } else // 초기 선택 화면의 번호들이 아닌 경우
+                } else { // 초기 선택 화면의 번호들이 아닌 경우
                     Console.WriteLine("올바른 값을 입력해 주세요.");
+                }
             }
 
             Console.ReadKey();
