@@ -76,33 +76,39 @@ namespace LearnCS_Collections
                     int choice = 0, totalMenu = 0, totalPrice = 0, exit = 0;
 
                     while(true) {
-                        for(int i = 0; i < menuDic.Count; i++) {
-                            if(menuDic.Keys.ToList()[i].Length >= 3)
-                                Console.WriteLine("{0}. {1}\t\t{2:#,###}", i + 1, menuDic.Keys.ToList()[i], menuDic.Values.ToList()[i]);
-                            else
-                                Console.WriteLine("{0}. {1}\t\t\t{2:#,###}", i + 1, menuDic.Keys.ToList()[i], menuDic.Values.ToList()[i]);
-                        }
-
-                        exit = menuDic.Count + 1;
-                        Console.WriteLine("{0}. 메뉴 선택 종료", exit);
-                        if(choice - 1 == exit) break; // 반복문 빠져나옴
-
-                        Console.Write("메뉴를 선택하세요 : ");
-                        choice = int.Parse(Console.ReadLine());
-
-                        if(choice - 1 == menuDic.Count) {
-                            Console.WriteLine("{0}개의 메뉴를 선택하셨습니다.", totalMenu = totalMenu == 0 ? 0 : totalMenu);
-
-                            if(totalPrice == 0)
-                                Console.WriteLine("모두 {0}원 입니다.", totalPrice);
-                            else
-                                Console.WriteLine("모두 {0:#,###}원 입니다.", totalPrice);
-
+                        if(menuDic.Count == 0) { // 추가된 메뉴가 없다면
+                            Console.WriteLine("메뉴가 없으므로 프로그램을 종료합니다.");
                             break;
                         }
                         else {
-                            totalMenu++;
-                            totalPrice += menuDic.Values.ToList()[choice - 1];
+                            for(int i = 0; i < menuDic.Count; i++) {
+                                if(menuDic.Keys.ToList()[i].Length >= 3)
+                                    Console.WriteLine("{0}. {1}\t\t{2:#,###}", i + 1, menuDic.Keys.ToList()[i], menuDic.Values.ToList()[i]);
+                                else
+                                    Console.WriteLine("{0}. {1}\t\t\t{2:#,###}", i + 1, menuDic.Keys.ToList()[i], menuDic.Values.ToList()[i]);
+                            }
+
+                            exit = menuDic.Count + 1;
+                            Console.WriteLine("{0}. 메뉴 선택 종료", exit);
+                            if(choice - 1 == exit) break; // 반복문 빠져나옴
+
+                            Console.Write("메뉴를 선택하세요 : ");
+                            choice = int.Parse(Console.ReadLine());
+
+                            if(choice - 1 == menuDic.Count) {
+                                Console.WriteLine("{0}개의 메뉴를 선택하셨습니다.", totalMenu = totalMenu == 0 ? 0 : totalMenu);
+
+                                if(totalPrice == 0)
+                                    Console.WriteLine("모두 {0}원 입니다.", totalPrice);
+                                else
+                                    Console.WriteLine("모두 {0:#,###}원 입니다.", totalPrice);
+
+                                break;
+                            }
+                            else {
+                                totalMenu++;
+                                totalPrice += menuDic.Values.ToList()[choice - 1];
+                            }
                         }
                     }
                     if(choice - 1 == exit - 1) break; // 프로그램 종료
