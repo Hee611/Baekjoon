@@ -9,108 +9,106 @@ namespace LearnCS_Collections
         static Random _rd = new Random();
         static void Main(string[] args)
         {
+            // 연습
+            Food fd = new Food();
+
+            // 메뉴 정보가 담길 Dictinary
             Dictionary<string, int> menuDic = new Dictionary<string, int>();
-            int menuNum = 0, menuPrice = 0;
+
+            // 메인메뉴 번호 & 메뉴 가격 & 메뉴 이름
+            int mainNum = 0, menuPrice = 0;
             string menuName = "";
 
-            while (true) {
+            while(true) {
                 Console.WriteLine("분식집을 오픈하였습니다.");
                 Console.WriteLine("1. 메뉴 추가\n2. 메뉴 삭제\n3. 전체 메뉴 확인\n4. 종료");
                 Console.Write("어느 일을 하시겠습니까 : ");
 
-                menuNum = int.Parse(Console.ReadLine());
+                mainNum = int.Parse(Console.ReadLine());
 
-                if (menuNum == 1) { // 메뉴 추가
-                    while (true) {
+                // 1. 메뉴 추가
+                if(mainNum == 1) {
+                    while(true) {
                         Console.Write("메뉴 이름을 입력하세요(q/Q면 종료) : ");
                         menuName = Console.ReadLine();
 
-                        if (menuName == "q" || menuName == "Q") break;
+                        if(menuName == "q" || menuName == "Q") break;
 
                         Console.Write("메뉴 가격을 입력하세요 : ");
                         menuPrice = int.Parse(Console.ReadLine());
 
-                        if (menuDic.ContainsKey(menuName)) {
-                            menuDic[menuName] = menuPrice;
-                            Console.WriteLine("메뉴가 수정 되었습니다.");
-                        } else {
-                            menuDic[menuName] = menuPrice;
-                            Console.WriteLine("메뉴가 등록 되었습니다.");
-                        }
+                        fd.MenuAdd(menuDic, menuName, menuPrice);
                     }
-                } else if (menuNum == 2) { // 메뉴 삭제 
-                    while (true) {
+                }
+                // 2. 메뉴 삭제
+                else if(mainNum == 2) { 
+                    while(true) {
                         // 전체 메뉴 출력
-                        int count = menuDic.Count;
-                        foreach (string key in menuDic.Keys) {
-                            //cnt++;
-                            --count;
-                            if (count == 0 || menuDic.Count == 1) {
-                                Console.WriteLine("{0}", key);
-                            } else {
-                                Console.Write("{0}, ", key);
-                            }
+                        for(int i = 0; i < menuDic.Count; i++) {
+                            if(i < menuDic.Count - 1)
+                                Console.Write("{0}, ", menuDic.Keys.ToList()[i]);
+                            else
+                                Console.WriteLine("{0}", menuDic.Keys.ToList()[i]);
                         }
 
-                        if (menuDic.Count == 0) break;
+                        if(menuDic.Count == 0) break;
 
                         Console.Write("삭제할 메뉴 이름을 입력하세요(q/Q면 종료) : ");
                         menuName = Console.ReadLine();
 
-                        if (menuName == "q" || menuName == "Q") break;
+                        if(menuName == "q" || menuName == "Q") break;
 
-                        if (menuDic.ContainsKey(menuName)) {
-                            menuDic.Remove(menuName);
-                            Console.WriteLine("메뉴가 삭제 되었습니다.");
-                        } else {
-                            Console.WriteLine("올바른 값을 입력해 주세요.");
-                        }
+                        fd.MenuDelete(menuDic, menuName);
                     }
-                } else if (menuNum == 3) { // 전체 메뉴 조회
-                    foreach (string key in menuDic.Keys) {
-                        int length = key.Length;
-                        if (length >= 5) { // 글자수가 5 이상이면 탭을 한번
-                            Console.WriteLine("메뉴 : {0}\t{1:#,###}원", key, menuDic[key]);
-                        } else {            // 글자수가 5 미만이면 앞에 탭을 두번
-                            Console.WriteLine("메뉴 : {0}\t\t{1:#,###}원", key, menuDic[key]);
-                        }
+                }
+                // 3. 전체 메뉴 조회
+                else if(mainNum == 3) {
+                    for(int i = 0; i < menuDic.Count; i++) {
+                        if(menuDic.Keys.ToList()[i].Length >= 5)
+                            Console.WriteLine("메뉴 : {0}\t{1:#,###}원", menuDic.Keys.ToList()[i], menuDic.Values.ToList()[i]);
+                        else
+                            Console.WriteLine("메뉴 : {0}\t\t{1:#,###}원", menuDic.Keys.ToList()[i], menuDic.Values.ToList()[i]);
                     }
-                } else if (menuNum == 4) { // 종료 + 먹을 메뉴 선택
-                    int choice = 0, totalMenu = 0, totalPrice = 0, length = 0;
+                }
+                // 4. 종료 (+ 먹을 메뉴 선택)
+                else if(mainNum == 4) {
+                    // 메뉴 선택 & 총 선택 메뉴 개수 & 총 선택 메뉴 가격
+                    int choice = 0, totalMenu = 0, totalPrice = 0, exit = 0;
 
-                    while (true) {
-                        for (int i = 0; i < menuDic.Count; i++) {
-                            if (length >= 3) { // 글자수가 3 이상이면 탭을 한번
-                                Console.WriteLine("{0}. {1}\t{2:#,###}", i + 1, menuDic.Keys.ToList()[i], menuDic.Values.ToList()[i]);
-                            } else {            // 글자수가 3 미만이면 앞에 탭을 두번
+                    while(true) {
+                        for(int i = 0; i < menuDic.Count; i++) {
+                            if(menuDic.Keys.ToList()[i].Length >= 3)
                                 Console.WriteLine("{0}. {1}\t\t{2:#,###}", i + 1, menuDic.Keys.ToList()[i], menuDic.Values.ToList()[i]);
-                            }
+                            else
+                                Console.WriteLine("{0}. {1}\t\t\t{2:#,###}", i + 1, menuDic.Keys.ToList()[i], menuDic.Values.ToList()[i]);
                         }
 
-                        int exit = menuDic.Count + 1;
-
+                        exit = menuDic.Count + 1;
                         Console.WriteLine("{0}. 메뉴 선택 종료", exit);
-                        Console.Write("메뉴를 선택하세요 : ");
+                        if(choice - 1 == exit) break; // 반복문 빠져나옴
 
+                        Console.Write("메뉴를 선택하세요 : ");
                         choice = int.Parse(Console.ReadLine());
 
-                        if (choice - 1 == menuDic.Count) {
-                            Console.WriteLine("{0}개의 메뉴를 선택하셨습니다.", totalMenu);
-                            Console.WriteLine("모두 {0:#,###}원 입니다.", totalPrice);
+                        if(choice - 1 == menuDic.Count) {
+                            Console.WriteLine("{0}개의 메뉴를 선택하셨습니다.", totalMenu = totalMenu == 0 ? 0 : totalMenu);
+
+                            if(totalPrice == 0)
+                                Console.WriteLine("모두 {0}원 입니다.", totalPrice);
+                            else
+                                Console.WriteLine("모두 {0:#,###}원 입니다.", totalPrice);
+
                             break;
-                        } else {
+                        }
+                        else {
                             totalMenu++;
                             totalPrice += menuDic.Values.ToList()[choice - 1];
                         }
                     }
-
-                    if (choice - 1 == menuDic.Count) {
-                        break;
-                    }
-
-                } else { // 초기 선택 화면의 번호들이 아닌 경우
-                    Console.WriteLine("올바른 값을 입력해 주세요.");
+                    if(choice - 1 == exit - 1) break; // 프로그램 종료
                 }
+                // 초기 선택 화면의 번호들이 아닌 경우
+                else Console.WriteLine("선택지에 나와있는 번호를 입력해 주세요.");
             }
 
             Console.ReadKey();
