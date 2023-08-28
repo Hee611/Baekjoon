@@ -50,7 +50,7 @@ public class RobotController1 : MonoBehaviour {
         {
             //Vector3 dir = transform.rotation * new Vector3(dx, 0, dz);
 
-            // GetAxisRaw 간단히? & 움직임과 회전을 따로할 때
+            // GetAxisRaw
             // 여기서 normalized를 제거하면 대각선으로 이동 시 좀 더 빨라지는 문제점이 있음
             //transform.position += dir.normalized * _moveSpeed * Time.deltaTime;
 
