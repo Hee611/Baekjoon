@@ -21,6 +21,7 @@ public class WallBreak : MonoBehaviour
         //              지정 태그가 리스트에 있는지도 판별한다.
         //              즉, Unity에서 설정한 Tag와 틀리면 에러가 발생한다.
         //              때문에 소스 상에서 오타가 난 부분을 잘 잡을 수 있다.
+        // 🔽 만약 Game Object의 태그가 Missile이라면
         if(other.gameObject.CompareTag("Missile")) {
             // other.transform.position : other이 닿은 위치
             // _hitEffectObj.transform.rotation : _hitEffectObj가 가진 고유의 방향
