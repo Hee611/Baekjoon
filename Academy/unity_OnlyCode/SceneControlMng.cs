@@ -50,6 +50,9 @@ public class SceneControlMng : MonoBehaviour
     }
 
     public void StartTitle() {
+        // StartTitle 로 넘어왔을 때 TITLE에 해당되는 BGM을 0.1f 정도의 사운드로 실행(true)
+        SoundManager._instance.PlayBGMSound(SoundManager.eBGMType.TITLE, 0.1f, true);
+        
         _nowLoadState = eLoaddingState.start;
         _loadProc = SceneManager.LoadSceneAsync("TitleScene");
         // 멀티 Scene일때 (스테이지 맵이 다르게 만들어질 때 / 인게임 밑에 스테이지 씬이 붙어서 나오는 경우)
@@ -57,6 +60,9 @@ public class SceneControlMng : MonoBehaviour
     }
 
     public void StartIngame() {
+        // StartIngame 로 넘어왔을 때 INGAME에 해당되는 BGM을 0.1f 정도의 사운드로 실행(true)
+        SoundManager._instance.PlayBGMSound(SoundManager.eBGMType.INGAME, 0.1f, true);
+
         _loadProc = SceneManager.LoadSceneAsync("IngameScene");
         // 멀티 Scene일때
         //_loadProc = SceneManager.LoadSceneAsync("IngameScene", LoadSceneMode.Additive);

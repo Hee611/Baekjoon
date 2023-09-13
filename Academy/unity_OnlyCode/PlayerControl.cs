@@ -24,6 +24,8 @@ public class PlayerControl : MonoBehaviour
         {
             Instantiate(_objBullet, _posFire.position, _posFire.rotation);
             _timeCheck = 0;
+            // Ingame Scene에서 총을 발사 할 때 eFFType BUTTON(총사운드가 없음)에 해당되는 사운드를 출력(루프가 아니라 false)
+            SoundManager._instance.PlayEFFSound(SoundManager.eEFFType.BUTTON, 1, false);
         }
     }
 

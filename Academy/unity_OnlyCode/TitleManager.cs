@@ -25,6 +25,9 @@ public class TitleManager : MonoBehaviour
         if(Input.GetButtonDown("Fire1")) {
             // 씬이동
             SceneControlMng._instance.StartIngame();
+
+            // Title Scene에서 클릭할 때 eFFType BUTTON에 해당되는 사운드를 한번만 출력 (루프가 아니라 false)
+            SoundManager._instance.PlayEFFSound(SoundManager.eEFFType.BUTTON, 1, false);
         }
     }
 }
