@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI; // nav
 
 public class ZombieController : MonoBehaviour
 {
@@ -24,6 +25,9 @@ public class ZombieController : MonoBehaviour
     // 플래그
     bool _isDeath;
     bool _isAttack;
+
+    // 네비게이션
+    NavMeshAgent _navAgent;
     
     // 내꺼라면 Awake에서 남의꺼라면 Start에서 얻어온다.
     void Awake() {
@@ -31,6 +35,7 @@ public class ZombieController : MonoBehaviour
         _isAttack = false; // false로 초기화
         _ctrlAni = GetComponent<Animator>();
         _posTarget = transform.position; // 현재 위치
+        _navAgent = GetComponent<NavMeshAgent>();
     }
 
     void Start()
@@ -62,6 +67,7 @@ public class ZombieController : MonoBehaviour
                 _posTarget = hit.point;             // 목표 위치를 hit의 좌표로 설정
                 transform.LookAt(_posTarget);       // 클릭한 _posTarget의 위치로 좀비의 방향이 돌아감
                 ChangedAction(eActionState.WALK);   // WALK Animation 실행
+                _navAgent.destination = _posTarget; // 네비게이션을 이용한 이동 / destination : 종착지
             }
         }
         if(Input.GetMouseButtonDown(1)) { // 우클릭이 되었을 경우
@@ -73,6 +79,7 @@ public class ZombieController : MonoBehaviour
                 _posTarget = hit.point;
                 transform.LookAt(_posTarget);
                 ChangedAction(eActionState.RUN);
+                _navAgent.destination = _posTarget; // 네비게이션을 이용한 이동 / destination : 종착지
             }
         }
 
@@ -89,7 +96,7 @@ public class ZombieController : MonoBehaviour
         // transform.position = Vector3.Lerp(transform.position, _posTarget, Time.deltaTime);
 
         // Vector3.MoveTowards(현재위치, 목표위치, 속도) 를 이용해 마우스 클릭시 Zombie 이동 / 일정하게 움직임
-        transform.position = Vector3.MoveTowards(transform.position, _posTarget, Time.deltaTime * _Speed);
+        //transform.position = Vector3.MoveTowards(transform.position, _posTarget, Time.deltaTime * _Speed);
 
     }
 
@@ -101,7 +108,8 @@ public class ZombieController : MonoBehaviour
                 break;
             case eActionState.WALK:
                 if(_stateAction != eActionState.ATTACK) {
-                    _Speed = _walkSpeed;
+                    //_Speed = _walkSpeed;
+                    _navAgent.speed = _walkSpeed; // 네비게이션을 사용할때
                     _stateAction = state;
                     _ctrlAni.SetInteger("AniState", (int)_stateAction);
                 }
@@ -109,11 +117,13 @@ public class ZombieController : MonoBehaviour
             case eActionState.RUN:
                 if(_stateAction == eActionState.ATTACK) {
                     _isAttack = false;
-                    _Speed = _movSpeed;
+                    //_Speed = _movSpeed;
+                    _navAgent.speed = _movSpeed; // 네비게이션을 사용할때
                     _stateAction = state;
                     _ctrlAni.SetInteger("AniState", (int)_stateAction);
                 } else {
-                    _Speed = _movSpeed;
+                    //_Speed = _movSpeed;
+                    _navAgent.speed = _movSpeed; // 네비게이션을 사용할때
                     _stateAction = state;
                     _ctrlAni.SetInteger("AniState", (int)_stateAction);
                 }
