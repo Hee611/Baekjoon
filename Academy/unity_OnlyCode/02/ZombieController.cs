@@ -16,6 +16,8 @@ public class ZombieController : MonoBehaviour
     // [SerializeField] 를 이용하면 public과 같이 인스펙터 창에서 수정 가능하도록 변수를 노출 시킨다.
     [SerializeField] float _movSpeed;   // Zombie가 움직이는 속도
     [SerializeField] float _walkSpeed;  // Zombie가 걷는 속도
+    [SerializeField] BoxCollider _damageZone; // DamageZone을 받아옴
+
     float _Speed;                       // 적용 시키는 속도?
 
     eActionState _stateAction;          // 현재 나의 액션
@@ -162,5 +164,13 @@ public class ZombieController : MonoBehaviour
         //if(GUI.Button(new Rect(0, 170, 200, 80), "RUN", test)) {
         //    _ctrlAni.SetInteger("AniState", (int)eActionState.RUN);
         //}
+    }
+
+    void DamageOn() {
+        _damageZone.enabled = true; // Box Collider를 킴
+    }
+
+    void DamageOff() {
+        _damageZone.enabled = false; // Box Collider를 끔
     }
 }
