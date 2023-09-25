@@ -1,4 +1,3 @@
-// Objects
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +12,7 @@ public class PlayerControl : StatBase {
     float _movSpeed = 3;
     bool _isAttack;
     float _passTime;
+    bool _isOn;
 
     // 참조형 변수
     Animator _aniController;
@@ -73,13 +73,30 @@ public class PlayerControl : StatBase {
                 ExchangeAniFromAction(CharacterActionState.Run);
             }
             else {
-                ExchangeAniFromAction(CharacterActionState.Idle);
+                // 특정 시간이 지나면 애니메이션 전환 (IDLE) 
+                _passTime += Time.deltaTime;
+                //Debug.Log((int)_passTime);
+
+                if(_passTime >= _changeIdleTime) {
+                    if(_isOn) {
+                        _isOn = false;
+                        ExchangeAniFromAction(CharacterActionState.Idle);
+                        IdleAniToType(_isOn);
+                    }
+                    else {
+                        _isOn = true;
+                        ExchangeAniFromAction(CharacterActionState.Idle);
+                        IdleAniToType(_isOn);
+                    }
+                    _passTime = 0;
+                }
             }
         }
     }
 
     void IdleAniToType(bool isOn) {
         _aniController.SetBool("IsOn", isOn);
+        _aniController.SetTrigger("ChangeAni");
     }
 
     void AttackTypeToAni(int type) {
@@ -101,7 +118,7 @@ public class PlayerControl : StatBase {
         }
 
         _aniController.SetInteger("AniState", (int)state);
-        _aniController.SetTrigger("ChangeAni");
+        //_aniController.SetTrigger("ChangeAni");
 
         _curruntActState = state;
     }
@@ -120,6 +137,8 @@ public class PlayerControl : StatBase {
         // 초기화
         _weaponObj.SetActive(false);
         _isAttack = false;
+        _passTime = 0;
+        _isOn = false;
 
         // 임시
         AttackTypeToAni(1);
@@ -128,29 +147,4 @@ public class PlayerControl : StatBase {
     protected override bool OnHitting() {
         return false;
     }
-
-    //void ongui() {
-    //    if (gui.button(new rect(0, 0, 120, 30), "idle1")) {
-    //        exchangeanifromaction(characteractionstate.idle);
-    //        idleanitotype(false);
-    //    }
-    //    if (gui.button(new rect(125, 0, 120, 30), "idle2")) {
-    //        exchangeanifromaction(characteractionstate.idle);
-    //        idleanitotype(true);
-    //    }
-    //    if (gui.button(new rect(0, 35, 120, 30), "run")) {
-    //        exchangeanifromaction(characteractionstate.run);
-    //    }
-    //    if (gui.button(new rect(0, 70, 120, 30), "attack1")) {
-    //        exchangeanifromaction(characteractionstate.attack);
-    //        attacktypetoani(1);
-    //    }
-    //    if (gui.button(new rect(125, 70, 120, 30), "attack2")) {
-    //        exchangeanifromaction(characteractionstate.attack);
-    //        attacktypetoani(2);
-    //    }
-    //    if (gui.button(new rect(0, 105, 120, 30), "die")) {
-    //        exchangeanifromaction(characteractionstate.die);
-    //    }
-    //}
 }
