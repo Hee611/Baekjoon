@@ -73,11 +73,11 @@ public class PlayerControl : StatBase {
                 ExchangeAniFromAction(CharacterActionState.Run);
             }
             else {
-                // 특정 시간이 지나면 애니메이션 전환 (IDLE) 
+                // 1. 특정 시간이 지나면 애니메이션 전환 (IDLE) / 2번에서도 씀
                 _passTime += Time.deltaTime;
-                //Debug.Log((int)_passTime);
+                Debug.Log((int)_passTime);
 
-                if(_passTime >= _changeIdleTime) {
+                /*if(_passTime >= _changeIdleTime) {
                     if(_isOn) {
                         _isOn = false;
                         ExchangeAniFromAction(CharacterActionState.Idle);
@@ -89,6 +89,20 @@ public class PlayerControl : StatBase {
                         IdleAniToType(_isOn);
                     }
                     _passTime = 0;
+                }*/
+
+                if(_passTime >= _changeIdleTime) {
+                    ExchangeAniFromAction(CharacterActionState.Idle);
+
+                    int rd = Random.Range(0, 100);
+                    if(_passTime >= _changeIdleTime) {
+                        // 2. 특정 확률이 되면 애니메이션 전환 (IDLE)
+                        if(rd < 50)
+                            IdleAniToType(false);
+                        else
+                            IdleAniToType(true);
+                        _passTime = 0;
+                    }
                 }
             }
         }
