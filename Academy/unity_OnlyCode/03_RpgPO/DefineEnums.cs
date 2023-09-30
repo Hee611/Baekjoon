@@ -10,6 +10,7 @@ namespace DefineEnums
         Walk,
         Run,
         Attack,
+        Jump,
         Die     = 20
     }
 }
