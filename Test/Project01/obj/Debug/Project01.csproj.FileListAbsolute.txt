@@ -1,0 +1,8 @@
+C:\Users\ncloud24\Desktop\My\Study\TestProject\Project01\Project01\bin\Debug\Project01.exe.config
+C:\Users\ncloud24\Desktop\My\Study\TestProject\Project01\Project01\bin\Debug\Project01.exe
+C:\Users\ncloud24\Desktop\My\Study\TestProject\Project01\Project01\bin\Debug\Project01.pdb
+C:\Users\ncloud24\Desktop\My\Study\TestProject\Project01\Project01\obj\Debug\Project01.Properties.Resources.resources
+C:\Users\ncloud24\Desktop\My\Study\TestProject\Project01\Project01\obj\Debug\Project01.csproj.GenerateResource.cache
+C:\Users\ncloud24\Desktop\My\Study\TestProject\Project01\Project01\obj\Debug\Project01.csproj.CoreCompileInputs.cache
+C:\Users\ncloud24\Desktop\My\Study\TestProject\Project01\Project01\obj\Debug\Project01.exe
+C:\Users\ncloud24\Desktop\My\Study\TestProject\Project01\Project01\obj\Debug\Project01.pdb
